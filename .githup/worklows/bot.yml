@@ -1,0 +1,24 @@
+name: Aternos AFK Bot
+
+on:
+  workflow_dispatch: # Manuel başlatma butonu ekler
+  schedule:
+    - cron: '*/30 * * * *' # Her 30 dakikada bir otomatik çalışır
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodu Çek
+        uses: actions/checkout@v3
+
+      - name: Node.js Kur
+        uses: actions/setup-node@v3
+        with:
+          node.js-version: '18'
+
+      - name: Paketleri Yükle
+        run: npm install
+
+      - name: Botu Çalıştır (6 Saat)
+        run: timeout 360m node index.js || true
