@@ -20,5 +20,5 @@ jobs:
       - name: Paketleri Yükle
         run: npm install
 
-      - name: Botu Çalıştır (6 Saat)
+      - name: Botu Çalıştır (24 Saat)
         run: timeout 360m node index.js || true
